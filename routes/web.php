@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('custom-register', 'CustomAuthController@showRegisterForm')->name('custom.register');
+Route::post('custom-register', 'CustomAuthController@register');
