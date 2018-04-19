@@ -49,6 +49,7 @@ Please follow these steps for installation
 ## How to use?
 Now we have two links in the top right corner namely Login and register
 1. The register will provide facility to register  
-2. Login will provide facility to Login  
+2. Login will provide facility to Login 
+3. Dashboard - Once the correct email and password is provided while logging in you will be redirected to dashboard. (this dashboard is middleware protected. i.e. can not be reached without login).
 
 MIT © [Niranjan Nimbalkar]()
