@@ -18,7 +18,14 @@ class CustomAuthController extends Controller
     {
         $this->validation($request);
         $request['password'] = bcrypt($request->password);
-        User::create($request->all());
+        /* Eloquent */
+        $user = new User;
+        $user->fname = $request['fname'];
+        $user->lname = $request['lname'];
+        $user->email = $request['email'];
+        $user->password = $request['password'];
+        $user->save();
+        
         return redirect('/')->with('Status', 'You have registered successfully!');
     }
 
@@ -34,7 +41,7 @@ class CustomAuthController extends Controller
             'password' => 'required|max:15',
         ]);
         if (Auth::attempt(['email'=> $request->email, 'password'=> $request->password ])) {
-            return redirect('/')->with('Status', 'You have logged in successfully!');
+            return redirect('/dashboard')->with('Status', 'You have logged in successfully!');
         }
         return 'Email and/or password mismatch!';
     }
