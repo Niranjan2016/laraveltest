@@ -15,5 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
 Route::get('custom-register', 'CustomAuthController@showRegisterForm')->name('custom.register');
 Route::post('custom-register', 'CustomAuthController@register');
+
+
+Route::get('custom-login', 'CustomAuthController@showLoginForm')->name('custom.login');
+Route::post('custom-login', 'CustomAuthController@login');
